@@ -1,0 +1,360 @@
+.container {
+    position: relative;
+    width: 450px;
+    height: 650px;
+    display: flex;
+}
+
+.container .videoBx {
+    position: relative;
+    width: calc(100% - 70px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.container .videoBx video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.container .videoBx .controls {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(#28212977, transparent);
+    border-radius: 20px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .videoBx:hover .controls {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container .videoBx .controls .videoIcon {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.container .videoBx .controls .videoIcon i {
+    color: #000000;
+}
+
+.container .videoBx .controls .videoIcon i:last-child {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .videoBx .controls .videoIcon.play.active i:first-child,
+.container .videoBx .controls .videoIcon.mute.active i:first-child {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .videoBx .controls .videoIcon.play.active i:last-child,
+.container .videoBx .controls .videoIcon.mute.active i:last-child {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container .videoBx .content {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container .videoBx .content .text {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.container .videoBx .content .text h5 {
+    color: #ffffff;
+    font-size: 1em;
+    font-weight: 400;
+}
+
+.container .videoBx .content .detail {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container .videoBx .content .detail .imgBx {
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container .videoBx .content .detail .imgBx .img {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+}
+
+.container .videoBx .content .detail .imgBx .img img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+.container .videoBx .content .detail .imgBx h4 {
+    position: relative;
+    color: #000000;
+    white-space: nowrap;
+    font-weight: 500;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.container .videoBx .content .detail .imgBx h4 span {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: 35px;
+    background: rgba(119, 119, 119, .9);
+    color: #000000;
+    border-radius: 5px;
+    font-weight: 300;
+    text-align: center;
+    line-height: 35px;
+    display: none;
+}
+
+.container .videoBx .content .detail .imgBx h4:hover span {
+    display: block;
+}
+
+.container .videoBx .content .detail .btn {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.container .videoBx .content .detail .btn button {
+    position: relative;
+    width: 110px;
+    height: 35px;
+    border-radius: 50px;
+    outline: none;
+    border: none;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.container .videoBx .centerPlayPause {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    width: 100%;
+    height: 450px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .videoBx .centerPlayPause li {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    background: #282129;
+    border-radius: 50%;
+    border: 1px solid rgba(119, 119, 119, .9);
+    opacity: 0;
+    visibility: hidden;
+}
+
+.container .videoBx .centerPlayPause li i {
+    color: #000000;
+    font-size: 2em;
+}
+
+.container .videoBx .centerPlayPause li.first {
+    position: absolute;
+}
+
+.container .videoBx .centerPlayPause li.first.active {
+    animation: animRipples .5s ease;
+}
+
+.container .videoBx .centerPlayPause li.second.active {
+    animation: animRipples .5s ease;
+}
+
+@keyframes animRipples {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0);
+    }
+
+    100% {
+        opacity: 1;
+        visibility: visible;
+        transform: scale(1);
+    }
+}
+
+.container .iconBx {
+    position: relative;
+    width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.container .iconBx ul {
+    position: relative;
+    width: 100%;
+    height: calc(100% - 130px);
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.container .iconBx ul li {
+    position: relative;
+    list-style: none;
+}
+
+.container .iconBx ul li a {
+    position: relative;
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-decoration: none;
+}
+
+.container .iconBx ul li a .icons {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #282129;
+    border-radius: 50%;
+}
+
+.container .iconBx ul li a .icons.active {
+    background: #fff;
+}
+
+.container .iconBx ul li a .icons i {
+    color: #fff;
+    font-size: 1.5em;
+}
+
+.container .iconBx ul li a .icons.active i {
+    color: #0f0f0f;
+}
+
+.container .iconBx ul li a .title {
+    color: #000000;
+    margin-top: 3px;
+}
+
+.container .iconBx ul li a .hover {
+    position: absolute;
+    right: 55px;
+    background: #666;
+    padding: 7px;
+    color: #fff;
+    font-size: 0.8em;
+    border-radius: 5px;
+    white-space: nowrap;
+    display: none;
+}
+
+.container .iconBx ul li a:hover .hover {
+    display: block;
+}
+
+.container .iconBx ul.bottomIcon {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .iconBx ul.bottomIcon li {
+    position: relative;
+    top: -15px;
+}
+
+.container .iconBx ul.bottomIcon li:last-child a {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.container .iconBx ul.bottomIcon li:last-child a img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+}
